@@ -5,30 +5,32 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { FormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
+
 
 
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { NewsComponent } from './news/news.component';
-import { DocumentsComponent } from './documents/documents.component';
+import { PriceComponent } from './price/price.component';
+import { DescriptionComponent } from './description/description.component';
 
 import { MenubarModule } from 'primeng/menubar';
-
+import { ChipModule } from 'primeng/chip';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NewsComponent,
-    DocumentsComponent,
+    PriceComponent,
+    DescriptionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MenubarModule,
     FormsModule,
+    ChipModule,
     ButtonModule,
   ],
   providers: [],

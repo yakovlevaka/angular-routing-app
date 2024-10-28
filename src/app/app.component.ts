@@ -30,23 +30,14 @@ export class AppComponent implements OnInit {
         routerLink: '/home'
       },
       {
-        label: 'News',
-        icon: 'pi pi-envelope',
-        routerLink: '/news'
+        label: 'Pricing',
+        icon: 'pi pi-money-bill',
+        routerLink: '/price'
       },
       {
-        label: 'Documents',
-        icon: 'pi pi-file',
-        navbarMenu: [
-          {
-            label: 'Internal',
-            routerLink: '/internal'
-          },
-          {
-            label: 'External',
-            routerLink: '/external'
-          }
-        ]
+        label: 'Description',
+        icon: 'pi pi-book',
+        routerLink: '/description'
       }
     ]
   }
