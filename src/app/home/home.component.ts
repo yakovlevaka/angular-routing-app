@@ -10,8 +10,11 @@ import { Cases } from '../app.interface';
 })
 export class HomeComponent implements OnInit {
     url: string = '';
-    id: string = '';
+    contactId: string = '';
+    guid: string = '';
     cases: Cases[] = [];
+    clonedCases: { [s: string]: Cases } = {};
+
     dataParam: string = '';
     constructor(
         private http: HttpClient
@@ -25,10 +28,11 @@ export class HomeComponent implements OnInit {
         this.url = context.getClientUrl() + "/api/data/v9.0";
         // this.url = "https://garage-stage.crm4.dynamics.com/api/data/v9.0"
         const parameters = context.getQueryStringParameters();
+        this.contactId = this.parseGuid(parameters['id']);
+        this.getCases(this.contactId);
         const urlParams = new URLSearchParams(window.location.search);
         this.dataParam = urlParams.get('data') || '';
-        this.id = this.parseGuid(parameters['id']);
-        this.getCases(this.id);
+
     }
 
     getCases(id: string): Promise<any> {
@@ -38,23 +42,11 @@ export class HomeComponent implements OnInit {
             .then((response: any) => {
                 this.cases = response.value.map((item: any) => ({
                     title: item['title'],
-                    description: item['description']
+                    description: item['description'],
+                    id: item['incidentid']
                 }));
-                // for (let item of response.value) {
-                //     this.cases.push({
-                //         title: item['title'],
-                //         description: item['description']
-                //     })
-                // };
-
-                console.log("cases1: ", this.cases);
             });
-        // response.value.forEach((item: any) => {
-        //     this.cases.push({
-        //         title: item['title'],
-        //         description: item['description']
-        //     });
-        // });
+
     }
 
     parseGuid(id: string) {
@@ -70,7 +62,5 @@ export class HomeComponent implements OnInit {
         }
 
     }
-
-
 
 }

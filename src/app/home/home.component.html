@@ -1,30 +1,30 @@
-<div class="surface-section px-4 py-4 md:px-6 lg:px-8 text-center">
-    <div class="mb-3 font-bold text-3xl">
-        <span class="text-900">Contact's cases:</span>
-    </div>
+<div class="mt-0">
     <span>{{dataParam}}</span>
 </div>
-<div class="card">
-    <p-table [value]="cases" [tableStyle]="{ 'min-width': '50rem' }">
-        <ng-template #header>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-            </tr>
-        </ng-template>
-        <ng-template #body let-case>
-            <tr>
-                <td>{{ case.title }}</td>
-                <td>{{ case.description }}</td>
-                <td>
-                    <div class="w-6 md:w-2 flex justify-content-end">
-                        <a routerLink="/" class="p-button font-bold" icon="pi pi-pencil">
-                            Edit
-                        </a>
+<div class="grid grid-nogutter">
+    <div class="col-12">
+        <p-table [value]="cases" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template #header>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-case>
+                <tr>
+                    <td>{{ case.title }}</td>
+                    <td>{{ case.description }}</td>
+                    <td>
+                        <div class="w-6 md:w-2 flex justify-content-end">
+                            <a [routerLink]="['/case/',case.id]" class="no-underline text-color">
+                                Open
+                            </a>
 
-                    </div>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </div>

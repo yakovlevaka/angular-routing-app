@@ -35,11 +35,6 @@ export class AppComponent implements OnInit {
         label: 'Pricing',
         icon: 'pi pi-money-bill',
         routerLink: '/price'
-      },
-      {
-        label: 'Description',
-        icon: 'pi pi-book',
-        routerLink: '/description/{id}'
       }
     ]
   }

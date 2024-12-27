@@ -10,11 +10,13 @@ import Lara from '@primeng/themes/lara';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { SelectModule } from 'primeng/select';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PriceComponent } from './price/price.component';
-import { DescriptionComponent } from './description/description.component';
+import { CaseComponent } from './case/case.component';
 
 
 
@@ -24,7 +26,7 @@ import { DescriptionComponent } from './description/description.component';
     AppComponent,
     HomeComponent,
     PriceComponent,
-    DescriptionComponent,
+    CaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,8 @@ import { DescriptionComponent } from './description/description.component';
     MenubarModule,
     ButtonModule,
     TableModule,
+    InputTextModule,
+    SelectModule,
     HttpClientModule,
 
   ],
