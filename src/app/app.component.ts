@@ -1,28 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
+import { PrimeNG } from 'primeng/config';
 import { MenuItem } from 'primeng/api';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  standalone: false
 })
 export class AppComponent implements OnInit {
+
   title = 'angular-routing-app';
 
   navbarMenu: MenuItem[] = [];
 
   constructor(
-    private primengConfig: PrimeNGConfig
+    private primeng: PrimeNG,
+
   ) {
 
   }
 
   ngOnInit() {
 
-    this.primengConfig.ripple = true;
-
+    this.primeng.ripple.set(true);
     this.navbarMenu = [
       {
         label: 'Home',
@@ -37,8 +39,9 @@ export class AppComponent implements OnInit {
       {
         label: 'Description',
         icon: 'pi pi-book',
-        routerLink: '/description'
+        routerLink: '/description/{id}'
       }
     ]
   }
+
 }
